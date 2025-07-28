@@ -7,6 +7,8 @@ def copy_files_recursive(source_dir_path, dest_dir_path):
         os.mkdir(dest_dir_path)
 
     for filename in os.listdir(source_dir_path):
+        if filename.startswith('.'):
+            continue
         from_path = os.path.join(source_dir_path, filename)
         dest_path = os.path.join(dest_dir_path, filename)
         print(f" * {from_path} -> {dest_path}")
